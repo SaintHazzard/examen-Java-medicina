@@ -1,7 +1,7 @@
 package com.examen.medicina.customer.model;
 
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import com.examen.medicina.city.model.City;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -33,7 +33,7 @@ public class Customer {
 
     private String emailcustomer    ;
 
-    private Date birthdate;
+    private LocalDate birthdate;
 
     private float lon;
 

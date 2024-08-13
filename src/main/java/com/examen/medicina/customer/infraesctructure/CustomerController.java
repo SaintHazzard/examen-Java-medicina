@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,13 +35,13 @@ public class CustomerController {
 
 
     @PostMapping("/save")
-    public ResponseEntity<CustomerDTO> save(CustomerDTO customerDTO){
+    public ResponseEntity<CustomerDTO> save(@RequestBody CustomerDTO customerDTO){
         System.out.println("CustomerDTO: "+customerDTO);
         return ResponseEntity.ok(customerService.save(customerDTO));
     }
 
     @PutMapping("/update")
-    public ResponseEntity<CustomerDTO> update(CustomerDTO customerDTO){
+    public ResponseEntity<CustomerDTO> update(@RequestBody CustomerDTO customerDTO){
         return ResponseEntity.ok(customerService.update(customerDTO));
     }
 }

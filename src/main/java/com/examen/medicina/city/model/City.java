@@ -46,4 +46,9 @@ public class City {
     @OneToMany
     @JsonManagedReference
     private List<Labatory> laboratories;
+
+
+    public City(String namecity) {
+        this.namecity = namecity;
+    }
 }
