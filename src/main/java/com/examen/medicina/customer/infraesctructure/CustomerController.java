@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,8 +29,8 @@ public class CustomerController {
     }
 
 
-    @GetMapping("/getById")
-    public ResponseEntity<CustomerDTO> getById(String id){
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<CustomerDTO> getById(@PathVariable String id){
         return ResponseEntity.ok(customerService.findById(id));
     }
 
