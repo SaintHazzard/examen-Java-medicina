@@ -12,4 +12,6 @@ GET
 
 /customer/getById
 
+
+PUT
 /customer/update
