@@ -7,10 +7,9 @@ http://localhost:8080/customer/save
 POST
 /customer/save
 
-GET
-/customer/getAll
+GET /customer/getAll
 
-/customer/getById
+GET /customer/getById
 
 
 PUT
