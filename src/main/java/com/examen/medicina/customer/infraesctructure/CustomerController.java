@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,31 +19,34 @@ import com.examen.medicina.customer.application.CustomerService;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
-    
+
     @Autowired
     private CustomerService customerService;
 
-
     @GetMapping("/getAll")
-    public ResponseEntity<List<CustomerDTO>> getAll(){
+    public ResponseEntity<List<CustomerDTO>> getAll() {
         return ResponseEntity.ok(customerService.findAll());
     }
 
-
     @GetMapping("/getById/{id}")
-    public ResponseEntity<CustomerDTO> getById(@PathVariable String id){
+    public ResponseEntity<CustomerDTO> getById(@PathVariable String id) {
         return ResponseEntity.ok(customerService.findById(id));
     }
 
-
     @PostMapping("/save")
-    public ResponseEntity<CustomerDTO> save(@RequestBody CustomerDTO customerDTO){
-        System.out.println("CustomerDTO: "+customerDTO);
+    public ResponseEntity<CustomerDTO> save(@RequestBody CustomerDTO customerDTO) {
+        System.out.println("CustomerDTO: " + customerDTO);
         return ResponseEntity.ok(customerService.save(customerDTO));
     }
 
     @PutMapping("/update")
-    public ResponseEntity<CustomerDTO> update(@RequestBody CustomerDTO customerDTO){
+    public ResponseEntity<CustomerDTO> update(@RequestBody CustomerDTO customerDTO) {
         return ResponseEntity.ok(customerService.update(customerDTO));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable String id) {
+        customerService.deleteById(id);
+        return ResponseEntity.ok("Customer deleted");
     }
 }

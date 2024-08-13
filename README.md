@@ -9,7 +9,7 @@ POST
 
 GET /customer/getAll
 
-GET /customer/getById
+GET /customer/getById/{id}
 
 
 PUT
